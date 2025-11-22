@@ -1,0 +1,19 @@
+// Core mission configuration for the template. Merge these entries into your mission description.ext
+// to enable logistics UI, respawn, and side mission framework.
+
+author = "Dark Demon";
+onLoadName = "Frontlines No Ace";
+respawn = 3;
+respawnDelay = 10;
+respawnTemplates[] = {"MenuPosition","MenuInventory"};
+respawnOnStart = 1;
+showCompass = 1;
+showGPS = 1;
+showMap = 1;
+showWatch = 1;
+
+#include "logistics/build_menu.hpp"
+
+class CfgFunctions {
+    #include "core/cfgFunctions.hpp"
+};
