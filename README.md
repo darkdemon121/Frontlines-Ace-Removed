@@ -39,10 +39,12 @@ can branch and swap them independently.
 ## File map
 ```
 README.md           # This file
-description.ext     # Mission config snippets (author, onLoadName, respawn, etc.)
+description.ext     # Mission config snippets (author, onLoadName, respawn,
+                    # etc.)
 init.sqf            # Entry point for mission logic
 
-core/               # Core mission flow (similar to Liberation RX core.liberation)
+core/               # Core mission flow (similar to Liberation RX
+                    # core.liberation)
 ├── cfgFunctions.hpp
 ├── fn_aiPlans.sqf
 ├── fn_economy.sqf
@@ -72,9 +74,9 @@ mod_template/
 ```
 
 ## Customizing for tests or releases
-- Set mission metadata (on-load name `Frontlines No Ace` and author `Dark Demon`)
-  in `description.ext` and `init.sqf` inside your mission folder after copying
-  these files over.
+- Set mission metadata (on-load name `Frontlines No Ace` and author
+  `Dark Demon`) in `description.ext` and `init.sqf` inside your mission folder
+  after copying these files over.
 - Tweak build costs, prerequisites, and unit pools inside
   `logistics/fn_buildables.sqf` and the faction files.
 - When you are happy with the configuration, export the mission from the Arma 3
@@ -84,10 +86,10 @@ mod_template/
 - Only faction definitions belong in `mod_template/`; all other mission files
   stay at the root so downstream missions can branch the logic without touching
   faction data.
-- Keep packaged `.pbo`/`.zip` artifacts out of this source repository—treat it
-  as the clean template that feeds your mission folders or GitHub releases.
+- Keep packaged `.pbo`/`.zip` artifacts out of this source repository—treat
+  it as the clean template that feeds your mission folders or GitHub releases.
 
 ## Credits
-Inspired by the structure of [Liberation RX][liberation-rx].
-
-[liberation-rx]: https://github.com/tbox1911/Liberation-RX/tree/master/core.liberation/mod_template
+Inspired by the structure of
+[Liberation RX](https://github.com/tbox1911/Liberation-RX) and its
+`core.liberation/mod_template` layout.
