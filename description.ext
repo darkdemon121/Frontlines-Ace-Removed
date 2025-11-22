@@ -12,10 +12,10 @@ showGPS = 1;
 showMap = 1;
 showWatch = 1;
 
-#include "logistics/build_menu.hpp"
+#include "config/build_menu.hpp"
 
 class CfgFunctions {
-    #include "core/cfgFunctions.hpp"
+    #include "config/cfgFunctions.hpp"
 };
 
 class Params {
