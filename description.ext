@@ -17,3 +17,7 @@ showWatch = 1;
 class CfgFunctions {
     #include "core/cfgFunctions.hpp"
 };
+
+class Params {
+    #include "config/Params.hpp"
+};

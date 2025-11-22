@@ -1,0 +1,31 @@
+version=54;
+class Mission
+{
+    addOns[] = {"A3_Map_Altis"};
+    addOnsAuto[] = {"A3_Map_Altis"};
+    randomSeed = 123456;
+    class Intel
+    {
+        briefingName = "Frontlines No Ace";
+        overviewText = "Dynamic Liberation-style war. Capture sectors, build FOBs, and manage logistics.";
+        resistanceWest = 0;
+        startWeather = 0.2;
+        forecastWeather = 0.2;
+        startWind = 0.1;
+        forecastWind = 0.1;
+        startWaves = 0.1;
+        forecastWaves = 0.1;
+        startFogDecay = 0.013;
+        forecastFogDecay = 0.013;
+        timeOfChanges = 1800;
+    };
+};
+class Intro
+{
+};
+class OutroWin
+{
+};
+class OutroLoose
+{
+};
