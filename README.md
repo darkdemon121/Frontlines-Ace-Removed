@@ -1,50 +1,43 @@
 # Liberation-Style Dynamic War Template
 
-This repository is a Liberation-inspired mission scaffold laid out like the
-`core.liberation` folder from Liberation RX so players can drop it into an Arma
-3 profile and play-test without moving files around.
+Drop-in Arma 3 mission files laid out like `core.liberation` so players can copy
+this folder into a mission directory and start testing immediately. Only faction
+configs live under `mod_template/`; everything else sits at the root for easy
+branching.
 
-## Quick start (download and play)
-1. Create or open an Arma 3 mission folder (for example:
-   `Frontlines_No_Ace.<mapname>` under your profile).
-2. Copy **everything in this repo** into that mission folder while keeping the
-   `core/`, `logistics/`, and `missions/` folders at the root.
-3. Copy the faction files from `mod_template/factions/` into a `mod_template/`
-   folder inside that mission.
+## Quick start
+1. Create or open a mission folder (for example, `Frontlines_No_Ace.<mapname>`)
+   under your Arma 3 profile.
+2. Copy **all files and folders in this repo** into that mission folder while
+   preserving the root structure (`core/`, `logistics/`, `missions/`, etc.).
+3. Copy the desired faction files from `mod_template/factions/` into a
+   `mod_template/` folder in that mission directory.
 4. In `init.sqf`, set `BLUFOR_FACTION`, `OPFOR_FACTION`, and optionally
-   `INDFOR_FACTION` to the faction files you want to use.
-5. Load the mission in the Arma 3 editor or host it; world objectives and
-   garrisons are generated automatically.
+   `INDFOR_FACTION` to match the faction files you copied.
+5. Launch the mission in the editor or host it; objectives, garrisons, and side
+   missions will spawn automatically.
 
-## What you get
-- **Auto-generated objectives:** cities, towns, military bases, factories, fuel
-  depots, radio towers, and roadblocks discovered from the map and garrisoned by
-  the enemy.
-- **Dynamic fronts:** enemy battle groups counter-attack captured sectors on
-  land and by air; friendly patrols spawn in controlled territory to keep the
-  battlefield lively.
+## Features
+- **Auto objectives:** cities, towns, military bases, factories, fuel depots,
+  radio towers, and roadblocks detected from the map and garrisoned by the
+  enemy.
+- **Dynamic fronts:** enemy counter-attacks by land/air plus friendly patrols in
+  held territory to keep the map busy.
 - **Side missions:** destroy roadblocks, destroy patrols, scout sectors, and
-  destroy supply convoys that travel from sector to sector.
-- **Logistics & economy:** FOB-based build menu gated by constructed
-  infrastructure and captured industry. Resources and fuel are produced by
-  staffed factories/fuel depots; civilians provide manpower for recruiting
-  troops.
-- **FOB system:** an unarmed FOB truck can deploy a forward base. Build menu is
-  accessible from FOBs via the mouse wheel.
+  destroy supply convoys traveling between sectors.
+- **Logistics & economy:** FOB build menu with infrastructure gates, industry
+  production for resources/fuel, and manpower from rescued civilians.
+- **FOB system:** unarmed FOB truck deploys bases; build menu is available at
+  FOBs via the mouse wheel.
 
-The template is intentionally data-driven: faction definitions live in
-`mod_template/factions/`, while gameplay systems sit in dedicated folders so you
-can branch and swap them independently.
-
-## File map
+## File layout
 ```
 README.md           # This file
-description.ext     # Mission config snippets (author, onLoadName, respawn,
-                    # etc.)
-init.sqf            # Entry point for mission logic
+LICENSE             # License
+description.ext    # Mission config (author, onLoadName, respawn, etc.)
+init.sqf            # Mission entry point
 
-core/               # Core mission flow (similar to Liberation RX
-                    # core.liberation)
+core/               # Core mission flow (like Liberation RX core.liberation)
 ├── cfgFunctions.hpp
 ├── fn_aiPlans.sqf
 ├── fn_economy.sqf
@@ -67,29 +60,26 @@ missions/side/      # Side mission scripts
 └── sm_scoutSector.sqf
 
 mod_template/
-└── factions/
+└── factions/       # Only faction definitions live here
     ├── faction_opfor_csat.sqf  # Enemy template (OPFOR)
     ├── faction_blufor_nato.sqf # Playable BLUFOR template
     └── faction_indfor_aaf.sqf  # Optional independent template
 ```
 
-## Customizing for tests or releases
-- Set mission metadata (on-load name `Frontlines No Ace` and author
-  `Dark Demon`) in `description.ext` and `init.sqf` inside your mission folder
-  after copying these files over.
-- Tweak build costs, prerequisites, and unit pools inside
+## Customizing
+- Update `description.ext` and `init.sqf` in your mission folder to set the
+  on-load name (`Frontlines No Ace`) and author (`Dark Demon`).
+- Adjust costs, build prerequisites, and unit pools in
   `logistics/fn_buildables.sqf` and the faction files.
-- When you are happy with the configuration, export the mission from the Arma 3
-  editor or pack it into a `.pbo` for distribution.
+- Export the mission from the Arma 3 editor or pack it into a `.pbo` when you
+  are ready to share.
 
-## Keeping the repo clean
-- Only faction definitions belong in `mod_template/`; all other mission files
-  stay at the root so downstream missions can branch the logic without touching
-  faction data.
-- Keep packaged `.pbo`/`.zip` artifacts out of this source repository—treat
-  it as the clean template that feeds your mission folders or GitHub releases.
+## Housekeeping
+- Keep packaged `.pbo`/`.zip` files out of source control; this repo is the
+  clean template for downstream missions or releases.
+- Only faction files belong under `mod_template/`; the rest of the logic stays
+  at the root for simple copying and branching.
 
 ## Credits
-Inspired by the structure of
-[Liberation RX](https://github.com/tbox1911/Liberation-RX) and its
-`core.liberation/mod_template` layout.
+Inspired by the layout of
+[Liberation RX](https://github.com/tbox1911/Liberation-RX).
